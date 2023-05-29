@@ -1,0 +1,15 @@
+{
+  "name": "react-atomic-variables",
+  "version": "1.0.0",
+  "description": "a super simple, no-dependency, implementation of a bottom-up state management system for react",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": "https://github.com/abir-taheer/react-atomic-variables/",
+  "author": "abir-taheer",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "@types/react": "^18.2.7",
+    "react": "^18.2.0"
+  }
+}
