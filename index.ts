@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 type Listener<Type> = (value: Type) => void;
 
@@ -72,7 +72,7 @@ export const useVariable = <Type>(
     variable.subscribe(setValue);
   }, [variable]);
 
-  return [value, variable.set];
+  return useMemo(() => [value, variable.set], [value, variable.set]);
 };
 
 export const useValue = <Type>(variable: AtomicVariable<Type>): Type => {
