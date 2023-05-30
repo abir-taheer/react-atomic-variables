@@ -1,7 +1,7 @@
 import { expect, use, should } from "chai";
 import sinon from "sinon";
 import sinonChai from "sinon-chai";
-import { AtomicVariable } from "../index";
+import { AtomicVariable } from "./index";
 
 should();
 use(sinonChai);
