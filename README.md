@@ -1,5 +1,7 @@
 # react-atomic-variables
 
+![CI Tests](https://github.com/abir-taheer/react-atomic-variables/actions/workflows/node.js.yml/badge.svg)
+
 ## How To Use
 
 ```tsx
