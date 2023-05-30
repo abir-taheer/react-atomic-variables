@@ -1,6 +1,6 @@
 {
   "name": "react-atomic-variables",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "description": "a super simple, no-dependency, implementation of a bottom-up state management system for react",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
