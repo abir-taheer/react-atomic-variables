@@ -4,3 +4,8 @@ node_modules/
 src/
 .github/
 *.test.*
+.nyc_output/
+
+# This project does not rely on any external dependencies
+# Any that exist in the package, are for development purposes only
+yarn.lock

@@ -27,21 +27,46 @@ describe("AtomicVariable", () => {
   });
 
   describe("#set", () => {
-    const variable = new AtomicVariable(1);
-
-    it("should set the value of the variable", () => {
-      variable.set(2);
-
-      expect(variable.getValue()).to.eq(2);
-    });
-
     it("should trigger the listeners", () => {
+      const variable = new AtomicVariable(1);
+
       const callback = sinon.spy();
 
       variable.subscribe(callback);
       variable.set(3);
 
       expect(callback).to.have.been.calledOnceWith(3);
+    });
+
+    describe("when not given a non-function value", () => {
+      it("should set the value of the variable", () => {
+        const variable = new AtomicVariable(1);
+
+        variable.set(2);
+
+        expect(variable.getValue()).to.eq(2);
+      });
+    });
+
+    describe("when given a callback", () => {
+      it("should call the function with the current value", () => {
+        const variable = new AtomicVariable(1);
+
+        const callback = sinon.spy();
+        variable.set(callback);
+
+        expect(callback).to.have.been.calledOnceWith(1);
+      });
+
+      it("should set the value to the return value of the callback", () => {
+        const variable = new AtomicVariable(1);
+
+        const callback = sinon.stub().returns(2);
+
+        variable.set(callback);
+
+        expect(variable.getValue()).to.eq(2);
+      });
     });
   });
 
