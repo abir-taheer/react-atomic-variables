@@ -92,7 +92,8 @@ unsubscribe(); // This removes the listener from the variable
 variable.set(2); // This should not trigger the callback
 ```
 
-### `useVariable<Type>(variable: AtomicVariable<Type>): [Type, Setter<Type>]`
+### `useVariable(variable: AtomicVariable) => [Value, Setter]`
+
 This is similar to the `useState` react hook except that it takes an AtomicVariable as a parameter instead of an initial value.
 
 It returns a tuple containing the current value of the variable and a setter function.
