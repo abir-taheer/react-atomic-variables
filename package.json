@@ -8,8 +8,26 @@
   "author": "abir-taheer",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "test": "mocha --require ts-node/register --extension \"ts\""
+  },
   "peerDependencies": {
     "@types/react": "^18.2.7",
     "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "@types/react": "^18.2.7",
+    "@types/sinon": "^10.0.15",
+    "@types/sinon-chai": "^3.2.9",
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.8",
+    "react": "^18.2.0",
+    "sinon": "^15.1.0",
+    "sinon-chai": "^3.7.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
   }
 }
