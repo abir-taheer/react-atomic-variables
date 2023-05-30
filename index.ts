@@ -80,7 +80,7 @@ export const useValue = <Type>(variable: AtomicVariable<Type>): Type => {
 
   useEffect(() => {
     return variable.subscribe(setValue);
-  }, [variable]);
+  }, [variable.subscribe]);
 
   return value;
 };
