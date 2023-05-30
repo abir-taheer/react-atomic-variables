@@ -1,6 +1,7 @@
 # react-atomic-variables
 
-![CI Tests](https://github.com/abir-taheer/react-atomic-variables/actions/workflows/node.js.yml/badge.svg)
+[![CI Tests](https://github.com/abir-taheer/react-atomic-variables/actions/workflows/node.js.yml/badge.svg)](https://github.com/abir-taheer/react-atomic-variables)
+[![Coverage Status](https://coveralls.io/repos/github/abir-taheer/react-atomic-variables/badge.svg?branch=main)](https://coveralls.io/github/abir-taheer/react-atomic-variables?branch=main)
 
 [View Demo Here!](https://react-atomic-variables.vercel.app/)
 
