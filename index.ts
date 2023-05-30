@@ -27,9 +27,9 @@ class ListenerStore<Type> {
 }
 
 export class AtomicVariable<Type> {
-  value: Type;
+  private value: Type;
   set: Setter<Type>;
-  listeners = new ListenerStore<Type>();
+  private listeners = new ListenerStore<Type>();
   subscribe: (callback: (value: Type) => void) => Unsubscribe;
 
   constructor(value: Type) {
@@ -57,12 +57,16 @@ export class AtomicVariable<Type> {
       return () => this.listeners.removeListener(listener);
     };
   }
+
+  getValue(): Type {
+    return this.value;
+  }
 }
 
 export const useVariable = <Type>(
   variable: AtomicVariable<Type>
 ): [Type, Setter<Type>] => {
-  const [value, setValue] = useState(variable.value);
+  const [value, setValue] = useState(variable.getValue());
 
   useEffect(() => {
     variable.subscribe(setValue);
@@ -72,7 +76,7 @@ export const useVariable = <Type>(
 };
 
 export const useValue = <Type>(variable: AtomicVariable<Type>): Type => {
-  const [value, setValue] = useState(variable.value);
+  const [value, setValue] = useState(variable.getValue());
 
   useEffect(() => {
     return variable.subscribe(setValue);
@@ -86,21 +90,3 @@ export const useSetValue = <Type>(
 ): Setter<Type> => {
   return variable.set;
 };
-
-/*
-// Usage
-
-const counterVariable = new AtomicVariable(0);
-
-const App = () => {
-  const [counter, setCounter] = useVariable(counterVariable);
-
-  return (
-    <div>
-      <button onClick={() => setCounter((c) => c + 1)}>Increment</button>
-      <button onClick={() => setCounter((c) => c - 1)}>Decrement</button>
-      <p>Counter: {counter}</p>
-    </div>
-  );
-}
- */
